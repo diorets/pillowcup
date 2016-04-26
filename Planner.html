@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Course Planner</title>
+  <link rel="stylesheet" type="text/css" href="planner.css">
+  
+<body>
+  <ul class="nav">
+    <!-- LOGO -->
+    <div class="logo">
+	    <a href="#">Course Planner Home</a>
+	</div>
+
+    <!-- Menu bar -->
+    <li><a href="Course Planner.html">Home</a></li>
+    <li><a href="Planner.html">Planner</a></li>
+    <li><a href="#">Sign up/Log in</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+
+  <canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;"></canvas>
+  <script>	
+    
+	var courses = [];
+	var textFile = new File("courses.txt");
+	/*textFile.open("r");
+	
+	while (!file.eof) {
+		  courses.push(file.readln() + "\n");
+		  drawText("hello", courses.length + 10, 10, "black");
+	}
+	*/
+	drawText("hello", 10, 10, "red");
+	
+	textFile.close();
+	
+	
+	
+	
+	function readTextFile(filepath) {
+	var str = "";
+	var txtFile = new File(filepath);
+	txtFile.open("r");
+	while (!txtFile.eof) {
+		// read each line of text
+		str += txtFile.readln() + "\n";
+	}
+	return str;
+}
+	
+	/* Worker Functions */
+    function drawLine(x1, y1, x2, y2, color) {
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.moveTo(y1, x1);
+      ctx.lineTo(x2, y2);
+	  ctx.strokeStyle=color;
+      ctx.stroke();
+	}
+	
+	function drawText(text, x, y, color) {
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.font = "12px Arial";
+	  ctx.fillStyle=color.toUpperCase();
+      ctx.fillText(text,x,y);
+  }
+  
+  </script>
+
+  
+  
+</body>
+</html>
