@@ -20,35 +20,14 @@
   </ul>
 
   <canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;"></canvas>
+  
+  	<?php
+	$myfile = fopen("sample.txt", "r") or die("Unable to open file!");
+	echo fread($myfile,filesize("webdictionary.txt"));
+	fclose($myfile);
+	?>
+	
   <script>	
-    
-	var courses = [];
-	var textFile = new File("courses.txt");
-	/*textFile.open("r");
-	
-	while (!file.eof) {
-		  courses.push(file.readln() + "\n");
-		  drawText("hello", courses.length + 10, 10, "black");
-	}
-	*/
-	drawText("hello", 10, 10, "red");
-	
-	textFile.close();
-	
-	
-	
-	
-	function readTextFile(filepath) {
-	var str = "";
-	var txtFile = new File(filepath);
-	txtFile.open("r");
-	while (!txtFile.eof) {
-		// read each line of text
-		str += txtFile.readln() + "\n";
-	}
-	return str;
-}
-	
 	/* Worker Functions */
     function drawLine(x1, y1, x2, y2, color) {
       var c = document.getElementById("myCanvas");
